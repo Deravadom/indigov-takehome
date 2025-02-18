@@ -2,7 +2,7 @@ import { BaseController, setApiHeaders } from "./baseController";
 import db from "../../config"
 
 export const CreateContact: BaseController = [
-    "api/contact",
+    "/api/contact",
     async (req, res) => {
         res = setApiHeaders(res)
         try {
