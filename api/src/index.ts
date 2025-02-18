@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors"
 import { setApiHeaders } from "./controllers/baseController"
-import { CreateContact, ListContacts } from "./controllers/contactController";
+import { CreateContact, ExportContacts, ListContacts } from "./controllers/contactController";
 
 const PORT = 3000;
 
@@ -16,6 +16,7 @@ app.get("/api/healthcheck", (req, res) => {
 
 app.get(...ListContacts)
 app.post(...CreateContact)
+app.post(...ExportContacts)
 
 app.listen(PORT, () => {
     console.log(`[server]: Server is running at http://localhost:${PORT}`)
