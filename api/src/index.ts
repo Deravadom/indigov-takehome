@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors"
 import { setApiHeaders } from "./controllers/baseController"
-import { CreateContact } from "./controllers/contactController";
+import { CreateContact, ListContacts } from "./controllers/contactController";
 
 const PORT = 3000;
 
@@ -14,6 +14,7 @@ app.get("/api/healthcheck", (req, res) => {
     res.json({ foo: "bar" })
 });
 
+app.get(...ListContacts)
 app.post(...CreateContact)
 
 app.listen(PORT, () => {

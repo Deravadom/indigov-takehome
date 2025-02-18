@@ -18,4 +18,21 @@ export const CreateContact: BaseController = [
     }
 ]
 
+export const ListContacts: BaseController = [
+    '/api/contacts',
+    async (req, res) => {
+        res = setApiHeaders(res)
+        try {
+            await db('contacts')
+                .then(contacts => res.status(200).json(contacts))
+        } catch (error) {
+            console.error(error)
+            res.status(500).json({
+                status: false,
+                msg: error
+            })
+        }
+    }
+]
+
 export default {}
