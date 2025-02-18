@@ -6,7 +6,7 @@ export const CreateContact: BaseController = [
     async (req, res) => {
         res = setApiHeaders(res)
         try {
-            const contact = db('contacts').insert(req.body, '*')
+            const contact = await db('contacts').insert(req.body, '*')
             res.status(201).json(contact)
         } catch (error) {
             console.error(error)
